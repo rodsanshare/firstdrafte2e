@@ -1,0 +1,22 @@
+{
+  "name": "firstdrafte2e",
+  "version": "1.0.0",
+  "description": "First draft for end to end skeleton application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodsanshare/firstdrafte2e.git"
+  },
+  "author": "Rodney Santiago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodsanshare/firstdrafte2e/issues"
+  },
+  "homepage": "https://github.com/rodsanshare/firstdrafte2e#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
