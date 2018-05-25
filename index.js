@@ -30,5 +30,4 @@ var dbContext3 = function () {
 
 app.get('/consumers', (req, res) => dbContext3().then(rows => res.send(rows)));
 
-//app.listen(3000, () => console.log('Example app listening on port 3000!'))
-module.exports = app;
+app.listen(3000, () => console.log('Example app listening on port 3000!'))
