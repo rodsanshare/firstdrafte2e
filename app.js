@@ -4,13 +4,6 @@ const decryptIt = require('./decrypt');
 
 app.use(express.static('client'));
 require('dotenv/config');
-//console.log(decryptIt('ZJvz9I94eb00B3qbrCF5yw=='));
-//touch
-// console.log('host: '+decryptIt(process.env.HOST));
-// console.log('user: '+decryptIt(process.env.USER));
-// console.log('pass: '+decryptIt(process.env.PASSWORD));
-// console.log('db: '+decryptIt(process.env.DATABASE));
-
 
 var dbContext3 = function () {
     var mysql = require('mysql');
