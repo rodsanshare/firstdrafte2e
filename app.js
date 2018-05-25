@@ -19,13 +19,8 @@ var dbContext3 = function () {
 
     return new Promise(function (resolve, reject) {
         connection.query('SELECT * FROM fieDb.consumers', function (err, rows, fields) {
-            if (err) throw err
+            if (err) throw err;
 
-            console.log('3');
-            console.log(process.env.USER)
-
-
-            console.log(rows);
             connection.end();
             return resolve(rows);
         });
