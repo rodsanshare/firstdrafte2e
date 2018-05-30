@@ -27,3 +27,6 @@ action2(1) //Play around with this parameter
     .then(function (word) {
         console.log(word);
     })
+    .catch(function (err) {
+        console.log(err);
+    })
