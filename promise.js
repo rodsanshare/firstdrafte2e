@@ -11,16 +11,19 @@ action(function (arg) {
 });
 
 //test
-var action2 = function () {
+var action2 = function (x) {
     return new Promise(function (resolve, reject) {
         setTimeout(() => {
-            resolve('hey2');
+            if (x === 1)
+                resolve('hey2');
+            else
+                reject(new Error('Error has occurred.'));
         }, 3000);
     })
 
 }
 
-action2()
+action2(1) //Play around with this parameter
     .then(function (word) {
         console.log(word);
     })
