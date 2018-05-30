@@ -17,7 +17,7 @@ function GetConsumers(req, res) {
     return new Promise(function (resolve, reject) {
         con.connect(function (err) {
             if (err) throw err;
-            con.query("SELECT * FROM " + config.DATABASE + ".consumers", function (err, result, fields) {
+            con.query("SELECT * FROM " + config.DATABASE + ".Contracts", function (err, result, fields) {
                 if (err) throw err;
                 //console.log(result);
                 resolve(result);
