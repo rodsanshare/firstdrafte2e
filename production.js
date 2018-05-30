@@ -1,16 +1,14 @@
-// const decryptIt = require('./decrypt');
-// const config = require('./config')
+const config = require('./config');
+const showIt = require('./decrypt');
 
-// module.exports = {
-//     host: decryptIt(config.HOST),
-//     user: decryptIt(config.USER),
-//     password: decryptIt(config.PASSWORD),
-//     database: decryptIt(config.DATABASE)
-// };
+var host = showIt(process.env.HOST);
+var user = showIt(process.env.USER);
+var password = showIt(process.env.PASSWORD);
+var database = showIt(process.env.DATABASE);
 
 module.exports = {
-    HOST: '127.0.0.1',
-    USER: 'root',
-    PASSWORD: 'admin',
-    DATABASE: 'fieDb_PROD'
+    HOST: host,
+    USER: user,
+    PASSWORD: password,
+    DATABASE: database
 };

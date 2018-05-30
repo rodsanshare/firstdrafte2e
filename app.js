@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const decryptIt = require('./decrypt');
 
 app.use(express.static('client'));
 const config = require('./config')
@@ -27,8 +26,6 @@ function GetConsumers(req, res) {
     }).then(rows => res.send(rows));
 }
 
-//app.get('/consumers', (req, res) => dbContext3().then(rows => res.send(rows)));
-app.get('/consumers', GetConsumers(req, res));
+app.get('/consumers', GetConsumers);
 
-//app.listen(3000, () => console.log('Example app listening on port 3000!'))
 module.exports = app;
