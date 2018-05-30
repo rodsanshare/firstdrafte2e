@@ -3,32 +3,32 @@ const app = express();
 const decryptIt = require('./decrypt');
 
 app.use(express.static('client'));
-require('dotenv/config');
+const config = require('./config')
 
-var dbContext3 = function () {
-    var mysql = require('mysql');
-    var consumers = '';
-    var connection = mysql.createConnection({
-        host: decryptIt(process.env.HOST),
-        user: decryptIt(process.env.USER),
-        password: decryptIt(process.env.PASSWORD),
-        database: decryptIt(process.env.DATABASE)
-    });
+var mysql = require('mysql');
 
-    connection.connect()
+var con = mysql.createConnection({
+    host: config.HOST,
+    user: config.USER,
+    password: config.PASSWORD,
+    database: config.DATABASE
+});
 
+function GetConsumers(req, res) {
     return new Promise(function (resolve, reject) {
-        connection.query('SELECT * FROM fieDb.consumers', function (err, rows, fields) {
+        con.connect(function (err) {
             if (err) throw err;
-
-            connection.end();
-            return resolve(rows);
+            con.query("SELECT * FROM " + config.DATABASE + ".consumers", function (err, result, fields) {
+                if (err) throw err;
+                //console.log(result);
+                resolve(result);
+            });
         });
-    });
+    }).then(rows => res.send(rows));
+}
 
-};
-
-app.get('/consumers', (req, res) => dbContext3().then(rows => res.send(rows)));
+//app.get('/consumers', (req, res) => dbContext3().then(rows => res.send(rows)));
+app.get('/consumers', GetConsumers(req, res));
 
 //app.listen(3000, () => console.log('Example app listening on port 3000!'))
 module.exports = app;
