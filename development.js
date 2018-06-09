@@ -1,7 +1,8 @@
+require('dotenv/config');
 
 module.exports = {
-    HOST: '127.0.0.1',
-    USER: 'root',
-    PASSWORD: 'admin',
-    DATABASE: 'fieDb'
+    HOST: process.env.HOST,
+    USER: process.env.USER,
+    PASSWORD: process.env.PASSWORD,
+    DATABASE: process.env.DATABASE,
 };
