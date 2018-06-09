@@ -20,6 +20,7 @@ exports.get = function (req, res) {
                 res.send(err)
             };
             //console.log(result);
+            con.end();
             res.send(result)
         });
     });
