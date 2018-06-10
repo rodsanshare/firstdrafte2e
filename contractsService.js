@@ -10,18 +10,18 @@ var con = mysql.createConnection({
 });
 
 
-exports.get = function (req, res) {
-    con.connect(function (err) {
-        if (err) {
-            res.send(err)
-        };
-        con.query("SELECT * FROM " + config.DATABASE + ".Contracts", function (err, result, fields) {
+exports.get = function () {
+    return new Promise((resolve, reject) => {
+        con.connect(function (err) {
             if (err) {
-                res.send(err)
+                reject(new Error('Error by Rodney'))
             };
-            //console.log(result);
-            con.end();
-            res.send(result)
+            con.query("SELECT * FROM " + config.DATABASE + ".Contracts", function (err, result, fields) {
+                if (err) {
+                    reject(new Error('Error by Rodney'));
+                } else
+                    resolve(result);
+            });
         });
     });
 }
