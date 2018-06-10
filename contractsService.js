@@ -22,6 +22,7 @@ exports.get = function () {
                 } else
                     resolve(result);
             });
+            con.end();
         });
     });
 }
