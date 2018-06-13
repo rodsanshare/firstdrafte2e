@@ -9,7 +9,7 @@ describe('contracts', function () {
             .get('/Contracts')
             .set('Accept', 'application/json')
             .end(function (err, res) {
-                console.log((res.text)[0].FirstName);
+                console.log((res.body)[0].FirstName);
                 chai(res.body).to.be.an('array');
                 chai(res.status).equals(200);
                 done();
